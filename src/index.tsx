@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {value01_01} from "./01/01"
+import {splitIntoWords} from "./01-happy-tests/01"
 
-let a=value01_01
+const sentence = "Hello my friend!"
+const result = splitIntoWords(sentence)
+console.log(result[0]==="hello")
+console.log(result[1]==="my")
+console.log(result[2]==="friend")
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
