@@ -11,6 +11,8 @@ export function splitIntoWords(sentence: string) {
 
        return words.filter(w => w!=="")
         .map(w => w.replace("!", ""))
+        .map(w => w.replace("-", ""))
+           .filter(w=>w!=="")
 }
 
 
