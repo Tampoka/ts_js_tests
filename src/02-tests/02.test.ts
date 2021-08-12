@@ -19,17 +19,17 @@ test("test city should contains 3 houses", () => {
     expect(city.houses[0].builtAt).toBe(2012)
     expect(city.houses[0].repaired).toBe(false)
     expect(city.houses[0].address.number).toBe(100)
-    expect(city.houses[0].address.streetTitle).toBe("white street")
+    expect(city.houses[0].address.street.title).toBe("white street")
 
     expect(city.houses[1].builtAt).toBe(2000)
     expect(city.houses[1].repaired).toBe(false)
     expect(city.houses[1].address.number).toBe(100)
-    expect(city.houses[1].address.streetTitle).toBe("Happy street")
+    expect(city.houses[1].address.street.title).toBe("Happy street")
 
     expect(city.houses[2].builtAt).toBe(2020)
     expect(city.houses[2].repaired).toBe(false)
     expect(city.houses[2].address.number).toBe(100)
-    expect(city.houses[2].address.streetTitle).toBe("Happy street")
+    expect(city.houses[2].address.street.title).toBe("Happy street")
 })
 
 //01. Add type GovernmentBuildingType
