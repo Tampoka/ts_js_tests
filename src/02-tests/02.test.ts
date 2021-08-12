@@ -1,3 +1,5 @@
+import {CityType} from "./02_02";
+
 let city: CityType;
 
 beforeEach(() => {
@@ -21,7 +23,7 @@ test("test city should contains 3 houses", () => {
 
     expect(city.houses[1].builtAt).toBe(2000)
     expect(city.houses[1].repaired).toBe(false)
-    expect(city.houses[1].adderss.number).toBe(100)
+    expect(city.houses[1].address.number).toBe(100)
     expect(city.houses[1].address.streetTitle).toBe("Happy street")
 
     expect(city.houses[2].builtAt).toBe(2020)
@@ -32,6 +34,6 @@ test("test city should contains 3 houses", () => {
 
 //01. Add type GovernmentBuildingType
 //02.Fill city object with properties to pass tests
-test.skip("city should cointain hospital and fire station",()=>{
+test.skip("city should contain hospital and fire station",()=>{
 
 })
