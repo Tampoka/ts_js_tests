@@ -8,7 +8,7 @@ type LocalCityType = {
 }
 type AddressType = {
     streetTitle: string
-    city: LocalCityTypeCityType
+    city: LocalCityType
 }
 type StudentType = {
     name: string
