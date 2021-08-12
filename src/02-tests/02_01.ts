@@ -2,13 +2,13 @@ type TechType = {
     id: number
     title: string
 }
-type CityType = {
+type LocalCityType = {
     title: string
     countryTitle: string
 }
 type AddressType = {
     streetTitle: string
-    city: CityType
+    city: LocalCityTypeCityType
 }
 type StudentType = {
     name: string
