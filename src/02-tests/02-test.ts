@@ -32,6 +32,6 @@ test("test city should contains 3 houses", () => {
 
 //01. Add type GovernmentBuildingType
 //02.Fill city object with properties to pass tests
-test("city should cointain hospital and fire station",()=>{
+test.skip("city should cointain hospital and fire station",()=>{
 
 })
