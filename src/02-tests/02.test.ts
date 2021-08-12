@@ -17,28 +17,49 @@ beforeEach(() => {
                 }
             },
             {
-                builtAt:2000,
-                repaired:false,
+                builtAt: 2000,
+                repaired: false,
                 address: {
                     number: 100,
                     street: {
                         title: "Happy street"
                     }
                 }
-                },
+            },
             {
-                builtAt:2020,
-                repaired:false,
+                builtAt: 2020,
+                repaired: false,
                 address: {
                     number: 100,
                     street: {
                         title: "Happy street"
                     }
                 }
-                }
+            }
 
         ],
-        governmentBuildings: [],
+        governmentBuildings: [
+            {
+                type: "HOSPITAL",
+                budget: 200000,
+                staffCount: 200,
+                address: {
+                    street: {
+                        title: "Central str"
+                    }
+                }
+            },
+            {
+                type: "FIRE-STATION",
+                budget: 500000,
+                staffCount: 100,
+                address: {
+                    street: {
+                        title: "South str"
+                    }
+                }
+            },
+        ],
         citizensNumber: 1000000
     }
 })
@@ -66,6 +87,16 @@ test("test city should contains 3 houses", () => {
 
 //01. Add type GovernmentBuildingType
 //02.Fill city object with properties to pass tests
-test.skip("city should contain hospital and fire station",()=>{
+test("city should contain hospital and fire station", () => {
+    expect(city.governmentBuildings.length).toBe(2)
 
+    expect(city.governmentBuildings[0].type).toBe("HOSPITAL");
+    expect(city.governmentBuildings[0].budget).toBe(200000);
+    expect(city.governmentBuildings[0].staffCount).toBe(200);
+    expect(city.governmentBuildings[0].address.street.title).toBe("Central str");
+
+    expect(city.governmentBuildings[1].type).toBe("FIRE-STATION");
+    expect(city.governmentBuildings[1].budget).toBe(500000);
+    expect(city.governmentBuildings[1].staffCount).toBe(100);
+    expect(city.governmentBuildings[1].address.street.title).toBe("South str");
 })
