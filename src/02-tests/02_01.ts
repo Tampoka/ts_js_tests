@@ -10,7 +10,7 @@ type AddressType = {
     streetTitle: string
     city: LocalCityType
 }
-type StudentType = {
+export type StudentType = {
     name: string
     age: number
     isActive: boolean
@@ -18,7 +18,7 @@ type StudentType = {
     technologies: Array<TechType>
 }
 
-const student: StudentType = {
+ const student: StudentType = {
     name: "Bob",
     age: 34,
     isActive: false,
