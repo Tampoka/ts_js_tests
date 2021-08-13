@@ -1,5 +1,5 @@
 import {StudentType} from "../02-tests/02_01";
-import {addSkill, makeStudentActive} from "./03_01";
+import {addSkill, doesStudentLiveIn, makeStudentActive} from "./03_01";
 
 let student:StudentType
 beforeEach(()=>{
@@ -42,4 +42,11 @@ test("student should be made active",()=>{
     expect(student.isActive).toBe(false)
     makeStudentActive(student)
     expect(student.isActive).toBe(true)
+})
+
+test("does student live in city?",()=>{
+let result1=doesStudentLiveIn(student,"Moscow")
+let result2=doesStudentLiveIn(student,"London")
+    expect(result1).toBe(false)
+    expect(result2).toBe(true)
 })
