@@ -7,3 +7,7 @@ export const addMoneyToBudget= (building: GovernmentBuildingsType, budget: numbe
 export const repairHouse= (house: HouseType)=>{
     house.repaired=true
 }
+
+export const toFireStaff= (building: GovernmentBuildingsType, staff: number)=>{
+    building.staffCount+=staff
+}
