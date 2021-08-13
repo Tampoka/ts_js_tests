@@ -46,3 +46,19 @@ test("get only completed tasks", () => {
     expect(completedTasks[2].title).toBe("Check homework")
 
 })
+
+test("get only uncompleted tasks", () => {
+    const tasks = [
+        {id: 1, title: "Buy bread", isDone: true},
+        {id: 2, title: "Learn React", isDone: false},
+        {id: 3, title: "Learn JS", isDone: false},
+        {id: 4, title: "Buy broccoli", isDone: true},
+        {id: 5, title: "Check homework", isDone: true},
+    ]
+    const uncompletedTasks = tasks.filter(task => !task.isDone)
+
+    expect(uncompletedTasks.length).toBe(2)
+    expect(uncompletedTasks[0].title).toBe("Learn React")
+    expect(uncompletedTasks[1].title).toBe("Learn JS")
+
+})
