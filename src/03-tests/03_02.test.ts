@@ -1,6 +1,6 @@
 
 import {CityType} from "../02-tests/02_02";
-import {addMoneyToBudget} from "./03_02";
+import {addMoneyToBudget, repairHouse} from "./03_02";
 
 
 let city: CityType;
@@ -10,6 +10,7 @@ beforeEach(() => {
         title: "New York",
         houses: [
             {
+                id:1,
                 builtAt: 2012,
                 repaired: false,
                 address: {
@@ -20,6 +21,7 @@ beforeEach(() => {
                 }
             },
             {
+                id:2,
                 builtAt: 2000,
                 repaired: false,
                 address: {
@@ -30,6 +32,7 @@ beforeEach(() => {
                 }
             },
             {
+                id:3,
                 builtAt: 2020,
                 repaired: false,
                 address: {
@@ -75,4 +78,9 @@ test('Budget should be changed for "HOSPITAL"',()=>{
 test('Budget should be changed for "FIRE-STATION"',()=>{
     addMoneyToBudget(city.governmentBuildings[1], -100000);
     expect(city.governmentBuildings[1].budget).toBe(400000);
+})
+
+test('Houses should be  repaired',()=>{
+    repairHouse(city.houses[1]);
+    expect(city.houses[1].repaired).toBe(true);
 })
