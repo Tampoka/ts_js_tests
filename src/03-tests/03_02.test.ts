@@ -1,6 +1,6 @@
 
 import {CityType} from "../02-tests/02_02";
-import {addMoneyToBudget, repairHouse, toFireStaff} from "./03_02";
+import {addMoneyToBudget, repairHouse, toFireStaff, toHireStaff} from "./03_02";
 
 
 let city: CityType;
@@ -88,4 +88,9 @@ test('Houses should be  repaired',()=>{
 test('staff should be increased',()=>{
     toFireStaff(city.governmentBuildings[0],20)
     expect(city.governmentBuildings[0].staffCount).toBe((220))
+})
+
+test('staff should be decreased',()=>{
+    toHireStaff(city.governmentBuildings[1],60)
+    expect(city.governmentBuildings[1].staffCount).toBe((40))
 })

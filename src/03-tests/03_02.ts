@@ -11,3 +11,7 @@ export const repairHouse= (house: HouseType)=>{
 export const toFireStaff= (building: GovernmentBuildingsType, staff: number)=>{
     building.staffCount+=staff
 }
+
+export const toHireStaff= (building: GovernmentBuildingsType, staff: number)=>{
+    building.staffCount-=staff
+}
