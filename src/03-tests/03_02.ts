@@ -15,3 +15,8 @@ export const toFireStaff= (building: GovernmentBuildingsType, staff: number)=>{
 export const toHireStaff= (building: GovernmentBuildingsType, staff: number)=>{
     building.staffCount-=staff
 }
+
+export const createMessage= (city: CityType)=>{
+    // return "Hello "+city.title+" citizens.I want you to be happy.All "+city.citizensNumber+" men."
+    return `Hello ${city.title} citizens.I want you to be happy.All ${city.citizensNumber} men.`
+}
