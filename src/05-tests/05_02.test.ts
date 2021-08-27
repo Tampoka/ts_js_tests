@@ -1,5 +1,5 @@
 import {CityType} from "../02-tests/02_02";
-import {getStreetTitlesOfGovernmentBuildings} from "./05_02";
+import {getStreetTitlesOfGovernmentBuildings, getStreetTitlesOfHouses} from "./05_02";
 
 let city:CityType;
 
@@ -75,5 +75,14 @@ test("list of streets titles of government buildings",()=>{
     expect(streets.length).toBe(2)
     expect(streets[0]).toBe("Central str")
     expect(streets[1]).toBe("South str")
+
+})
+test("list of streets titles",()=>{
+    let streets=getStreetTitlesOfHouses(city.houses)
+
+    expect(streets.length).toBe(3)
+    expect(streets[0]).toBe("White street")
+    expect(streets[1]).toBe("Happy street")
+    expect(streets[2]).toBe("Happy street")
 
 })
