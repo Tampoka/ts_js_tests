@@ -70,19 +70,19 @@ beforeEach(()=>{
 
 //01.
 test("list of streets titles of government buildings",()=>{
-    let streets=getStreetTitlesOfGovernmentBuildings(city.governmentBuildings)
+    let streetNames=getStreetTitlesOfGovernmentBuildings(city.governmentBuildings)
 
-    expect(streets.length).toBe(2)
-    expect(streets[0]).toBe("Central str")
-    expect(streets[1]).toBe("South str")
+    expect(streetNames.length).toBe(2)
+    expect(streetNames[0]).toBe("Central str")
+    expect(streetNames[1]).toBe("South str")
 
 })
 test("list of streets titles",()=>{
-    let streets=getStreetTitlesOfHouses(city.houses)
+    let streetNames=getStreetTitlesOfHouses(city.houses)
 
-    expect(streets.length).toBe(3)
-    expect(streets[0]).toBe("White street")
-    expect(streets[1]).toBe("Happy street")
-    expect(streets[2]).toBe("Happy street")
+    expect(streetNames.length).toBe(3)
+    expect(streetNames[0]).toBe("White street")
+    expect(streetNames[1]).toBe("Happy street")
+    expect(streetNames[2]).toBe("Happy street")
 
 })
