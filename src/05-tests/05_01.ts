@@ -8,13 +8,12 @@ const people: Array<ManType> = [
     {name: "Ann Dell", age: 27}
 ]
 
-const dimychTransformator=(man:ManType)=>{
-    return {
+const dimychTransformator=(man:ManType)=> (  {
         stack:["css","html","js","tdd","react"],
         firstName:man.name.split(" ")[0],
         lastName:man.name.split(" ")[1]
-    }
-}
+    })
+
 
 const devs=[
     {
@@ -36,8 +35,19 @@ const devs=[
 let d1=dimychTransformator(people[0])
 let d2=dimychTransformator(people[1])
 let d3=dimychTransformator(people[2])
-const dev2=[
+const dev2=
+    // [d1,d2,d3]
+    [
     dimychTransformator(people[0]),
     dimychTransformator(people[1]),
     dimychTransformator(people[2]),
 ]
+
+const dev3=people.map(dimychTransformator)
+const dev4=people.map(man=>({
+        stack:["css","html","js","tdd","react"],
+        firstName:man.name.split(" ")[0],
+        lastName:man.name.split(" ")[1]
+    }))
+
+const messages=people.map(man=>`Hello, ${man.name.split(" ")[0]} ! Welcome to IT-Incubator`)
