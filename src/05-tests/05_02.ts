@@ -9,5 +9,6 @@ export const getStreetTitlesOfHouses= (houses: Array<HouseType>)=>{
 }
 
 export const createMessages= (houses: Array<HouseType>)=>{
-    return houses.map(h=>`Hello guys from ${h.address.street.title}`)
+    let greet = (h:HouseType)=>`Hello guys from ${h.address.street.title}`;
+    return houses.map(greet)
 }
