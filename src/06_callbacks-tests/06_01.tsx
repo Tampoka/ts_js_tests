@@ -6,15 +6,18 @@ import React from 'react'
 // }
 // window.setTimeout(callback,2000)
 
-export const User=()=>{
-    const deleteUser=()=>{
+export const User = () => {
+    const deleteUser = () => {
         alert('user has been deleted')
     }
-    const saveUser=()=>{
+    const saveUser = () => {
         alert('user has been saved')
     }
-    return <div>John
-    <button onClick={deleteUser}>delete</button>
-    <button onClick={saveUser}>save</button>
+    const onTextChanged = () => {
+        console.log('text changed')
+    }
+    return <div><textarea onChange={onTextChanged}>John</textarea>
+        <div onClick={deleteUser}>delete</div>
+        <div onClick={saveUser}>save</div>
     </div>
 }
