@@ -25,8 +25,8 @@ export const User = () => {
     const onAgeChange = (e: ChangeEvent<HTMLInputElement>) => {
         console.log('age changed:  ' + e.currentTarget.value)
     }
-    const search = (e:MouseEvent<HTMLButtonElement>) => {
-
+    const search = (e: MouseEvent<HTMLButtonElement>) => {
+        alert("Your search is being processed...")
     }
     return <div>
         <textarea onChange={onTextChanged} onBlur={onFocusLostHandler}>John</textarea>
@@ -37,7 +37,7 @@ export const User = () => {
         <button name="delete" onClick={deleteUser}>x</button>
         <button name="save" onClick={deleteUser}>x</button>
         <hr/>
-        <input />
+        <input/>
         <button onClick={search}>search</button>
 
     </div>
