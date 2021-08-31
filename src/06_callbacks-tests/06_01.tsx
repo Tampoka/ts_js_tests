@@ -20,10 +20,13 @@ export const User = () => {
         console.log('focus lost')
     }
     const onInputValueChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log('value changed to '+e.currentTarget.value)
+        console.log('value changed to ' + e.currentTarget.value)
     }
     const onAgeChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log('age changed:  '+e.currentTarget.value)
+        console.log('age changed:  ' + e.currentTarget.value)
+    }
+    const search = (e:MouseEvent<HTMLButtonElement>) => {
+
     }
     return <div>
         <textarea onChange={onTextChanged} onBlur={onFocusLostHandler}>John</textarea>
@@ -33,5 +36,9 @@ export const User = () => {
         <hr/>
         <button name="delete" onClick={deleteUser}>x</button>
         <button name="save" onClick={deleteUser}>x</button>
+        <hr/>
+        <input />
+        <button onClick={search}>search</button>
+
     </div>
 }
