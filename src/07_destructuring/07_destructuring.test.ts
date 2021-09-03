@@ -1,0 +1,27 @@
+test("", () => {
+    let props = {
+        name: "John",
+        age: 34,
+        lessons: [{title: "1"}, {title: "2"}],
+        address: {
+            street: {
+                title: "Main st."
+            }
+        }
+    }
+
+    // const age=props.age
+    // const lessons=props.lessons
+
+    const {age, lessons,address:{street:{title}}} = props
+
+    const a = props.age
+    const l = props.lessons
+
+    expect(age).toBe(34)
+    expect(title).toBe("Main st.")
+    expect(lessons.length).toBe(2)
+
+    expect(a).toBe(34)
+    expect(l.length).toBe(2)
+})
