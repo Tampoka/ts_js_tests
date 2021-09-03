@@ -1,5 +1,20 @@
-test("", () => {
-    let props = {
+type LessonType = {
+    title: string
+}
+type ManType = {
+    name: string
+    age: number
+    // lessons: Array<{ title: string }>
+    lessons: Array<LessonType>
+    address: {
+        street: {
+            title: string
+        }
+    }
+}
+let props: ManType
+beforeEach(() => {
+    props = {
         name: "John",
         age: 34,
         lessons: [{title: "1"}, {title: "2"}],
@@ -9,11 +24,13 @@ test("", () => {
             }
         }
     }
+})
+test("", () => {
 
     // const age=props.age
     // const lessons=props.lessons
 
-    const {age, lessons,address:{street:{title}}} = props
+    const {age, lessons, address: {street: {title}}} = props
 
     const a = props.age
     const l = props.lessons
