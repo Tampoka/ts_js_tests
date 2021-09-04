@@ -32,6 +32,9 @@ test("", () => {
 
     const {age, lessons, address: {street: {title}}} = props
 
+    // const title=props.address.street.title
+    // const {title}=props.address.street
+
     const a = props.age
     const l = props.lessons
 
