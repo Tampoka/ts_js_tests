@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 export type LessonType = {
     title: string
@@ -20,8 +20,16 @@ type PropsType = {
     food: Array<string>
     car: { model: string }
 }
+
+function useMyOwnState(m:string) {
+    return [m,function (){}]
+}
+
 export const ManComponent: React.FC<PropsType> = (props) => {
     const {title,man,...restProps}=props
+
+    const [message,setMessage]=useMyOwnState("hello")
+
     return <div>
         <h1>{title}</h1>
         <hr/>
