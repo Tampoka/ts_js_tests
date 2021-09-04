@@ -1,17 +1,5 @@
-type LessonType = {
-    title: string
-}
-type ManType = {
-    name: string
-    age: number
-    // lessons: Array<{ title: string }>
-    lessons: Array<LessonType>
-    address: {
-        street: {
-            title: string
-        }
-    }
-}
+import {ManType} from "./Destructuring";
+
 let props: ManType
 beforeEach(() => {
     props = {
