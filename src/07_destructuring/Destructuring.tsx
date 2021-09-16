@@ -6,8 +6,8 @@ export type LessonType = {
 export type ManType = {
     name: string
     age: number
-    // lessons: Array<{ title: string }>
-    lessons: Array<LessonType>
+    lessons: Array<{ title: string,name?:string }>
+    // lessons: Array<LessonType>
     address: {
         street: {
             title: string

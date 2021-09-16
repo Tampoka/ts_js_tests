@@ -5,7 +5,7 @@ beforeEach(() => {
     props = {
         name: "John",
         age: 34,
-        lessons: [{title: "1"}, {title: "2"},{title: "3"}],
+        lessons: [{title: "1"}, {title: "2"},{title: "3",name:"react"}],
         address: {
             street: {
                 title: "Main st."
@@ -46,5 +46,6 @@ test("destructuring array", () => {
     expect(les1.title).toBe("1")
     expect(ls2.title).toBe("2")
     expect(restLessons.length).toBe(2)
-
+    expect(restLessons[1].name).toBe("react")
+    expect(restLessons[1]).toStrictEqual({title: "3",name:"react"})
 })
