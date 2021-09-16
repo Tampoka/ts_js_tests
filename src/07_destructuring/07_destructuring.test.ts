@@ -28,7 +28,7 @@ test("destructuring object", () => {
 
     expect(age).toBe(34)
     expect(title).toBe("Main st.")
-    expect(lessons.length).toBe(2)
+    expect(lessons.length).toBe(3)
 
     expect(a).toBe(34)
     expect(l.length).toBe(3)
@@ -43,7 +43,7 @@ test("destructuring array", () => {
 
     expect(l1.title).toBe("1")
     expect(l2.title).toBe("2")
-    // expect(ls1.title).toBe("1")
+    expect(les1.title).toBe("1")
     expect(ls2.title).toBe("2")
     expect(restLessons.length).toBe(2)
 
