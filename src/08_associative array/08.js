@@ -35,3 +35,8 @@ usersObj["hello, how are you?"]="fine!"
 Object.keys(usersObj)
 Object.values(usersObj)
 
+let case1=usersObj[0]
+usersObj[null]="something"
+let case2=usersObj[null]
+usersObj[{}]="hello"
+let case3=usersObj[{name: 'John',toString(){return "blabla"}}]
