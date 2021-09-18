@@ -38,3 +38,14 @@ export function moveUser(u: UserWithLaptopType, city: string) {
     // }
     return userCopy
 }
+export function updateLaptop(u: UserWithLaptopType, title: string) {
+    const userCopy = {
+        ...u,
+        laptop: {
+            ...u.laptop,
+            title: title
+        }
+    }
+
+    return userCopy
+}
