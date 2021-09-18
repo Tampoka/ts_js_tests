@@ -19,52 +19,45 @@ export type UserWithBooksType = UserWithLaptopType & {
 }
 
 export function makeHairCut(u: UserType, power: number) {
-    const userCopy = {
+    // userCopy.hair=u.hair/power
+    return {
         ...u,
         hair: u.hair / power
     }
-    // userCopy.hair=u.hair/power
-    return userCopy
 }
 
 export function moveUser(u: UserWithLaptopType, city: string) {
-    const userCopy = {
+    // userCopy.address = {
+    //     ...userCopy.address,
+    //     city:"Paris"
+    // }
+    return {
         ...u,
         address: {
             ...u.address,
             city: city
         }
     }
-
-    // userCopy.address = {
-    //     ...userCopy.address,
-    //     city:"Paris"
-    // }
-    return userCopy
 }
 
 export function updateLaptop(u: UserWithLaptopType, title: string) {
-    const userCopy = {
+    return {
         ...u,
         laptop: {
             ...u.laptop,
             title: title
         }
     }
-
-    return userCopy
 }
 
 export function moveToStreet(u: UserWithLaptopType, street: string) {
-    const userCopy = {
+    return {
         ...u,
         address: {
             ...u.address,
             street: street
         }
     }
-
-    return userCopy
 }
 
 export function addBooks(u: UserWithBooksType, newBooks: Array<string>) {
@@ -74,6 +67,15 @@ export function addBooks(u: UserWithBooksType, newBooks: Array<string>) {
             ...u.books,
             ...newBooks
         ]
+    }
+
+    return userCopy
+}
+
+export function updateBook(u: UserWithBooksType, oldBook:string,newBook:string) {
+    const userCopy = {
+        ...u,
+        books: u.books.map(b=> b===oldBook?newBook:b)
     }
 
     return userCopy
