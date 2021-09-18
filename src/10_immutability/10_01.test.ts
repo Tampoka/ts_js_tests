@@ -1,12 +1,12 @@
 import {
-    addBooks,
+    addBooks, addCompany,
     makeHairCut,
     moveToStreet,
-    moveUser, removeBook, updateBook,
+    moveUser, removeBook, updateBook, updateCompanyTitle,
     updateLaptop,
     UserType,
     UserWithBooksType,
-    UserWithLaptopType
+    UserWithLaptopType, WithCompaniesType
 } from "./10_01";
 
 test('immutable change test', () => {
@@ -147,4 +147,54 @@ test('remove html book', () => {
     expect(user.books.length).toBe(4)
     expect(updatedReader.address).toEqual(user.address)
     expect(updatedReader.laptop).toEqual(user.laptop)
+})
+test('add company', () => {
+    let user: UserWithLaptopType & WithCompaniesType = {
+        name: "Alex",
+        hair: 32,
+        address: {
+            city: "London",
+            street: "Central str."
+        },
+        laptop: {
+            title: "ZenBook"
+        },
+        companies: [
+            {id: 1, title: "Epam"},
+            {id: 2, title: "IT-Incubator"},
+            {id: 3, title: "Every Front"}
+        ]
+    }
+    const addedCompanyUser = addCompany(user, {id: 4, title: "Google"})
+
+    expect(addedCompanyUser.companies.length).toBe(4)
+    expect(addedCompanyUser.companies[3]).toEqual({id: 4, title: "Google"})
+    expect(addedCompanyUser.address).toEqual(user.address)
+    expect(addedCompanyUser.laptop).toEqual(user.laptop)
+})
+
+test('update company title', () => {
+    let user: UserWithLaptopType & WithCompaniesType = {
+        name: "Alex",
+        hair: 32,
+        address: {
+            city: "London",
+            street: "Central str."
+        },
+        laptop: {
+            title: "ZenBook"
+        },
+        companies: [
+            {id: 1, title: "Epam"},
+            {id: 2, title: "IT-Incubator"},
+            {id: 3, title: "Every Front"}
+        ]
+    }
+    const updatedCompanyUser = updateCompanyTitle(user, 1, "Epam International") as UserWithLaptopType & WithCompaniesType
+
+    expect(updatedCompanyUser.companies.length).toBe(3)
+    expect(updatedCompanyUser.companies[0].title).toBe("Epam International")
+    expect(updatedCompanyUser.companies[0]).toEqual({id: 1, title: "Epam International"})
+    expect(updatedCompanyUser.address).toEqual(user.address)
+    expect(updatedCompanyUser.laptop).toEqual(user.laptop)
 })
