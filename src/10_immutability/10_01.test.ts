@@ -1,8 +1,8 @@
 import {
-    addBooks, addCompany,
+    addBooks, addCompany, CompanyType,
     makeHairCut,
     moveToStreet,
-    moveUser, removeBook, updateBook, updateCompanyTitle,
+    moveUser, removeBook, updateBook, updateCompanyTitle, updateCompanyTitle2,
     updateLaptop,
     UserType,
     UserWithBooksType,
@@ -197,4 +197,23 @@ test('update company title', () => {
     expect(updatedCompanyUser.companies[0]).toEqual({id: 1, title: "Epam International"})
     expect(updatedCompanyUser.address).toEqual(user.address)
     expect(updatedCompanyUser.laptop).toEqual(user.laptop)
+})
+
+test('update company name in associative array',()=>{
+    const companies:{[key:string]:Array<CompanyType>}={
+        ["Bob"]:[
+            {id: 1, title: "Epam"},
+            {id: 2, title: "IT-Incubator"},
+            {id: 3, title: "Every Front"}
+        ],
+        ["John"]:[
+            {id: 1, title: "Frontev"},
+            {id: 2, title: "IT-Incubator"},
+
+        ]
+    }
+    const updatedCompanies=updateCompanyTitle2(companies,"John",1,"Google")
+
+    expect(updatedCompanies).not.toBe(companies)
+    expect(updatedCompanies["John"][0]).toEqual({id: 1, title: "Google"})
 })

@@ -19,7 +19,12 @@ export type UserWithBooksType = UserWithLaptopType & {
 }
 
 export type WithCompaniesType = {
-    companies: Array<{ id: number, title: string }>
+    companies: Array<CompanyType>
+}
+
+export type CompanyType = {
+    id: number
+    title: string
 }
 
 export function makeHairCut(u: UserType, power: number) {
@@ -99,10 +104,20 @@ export function addCompany(u: UserWithLaptopType & WithCompaniesType, newCompany
     }
 }
 
-export function updateCompanyTitle(u:WithCompaniesType, companyId: number, newTitle: string) {
+export function updateCompanyTitle(u: WithCompaniesType, companyId: number, newTitle: string) {
     return {
         ...u,
         companies: u.companies.map(c =>
+            c.id === companyId ?
+                {...c, title: newTitle}
+                : c)
+    }
+}
+
+export function updateCompanyTitle2(obj: { [key: string]: Array<CompanyType> }, userName: string, companyId: number, newTitle: string) {
+    return {
+        ...obj,
+        [userName]: obj[userName].map(c =>
             c.id === companyId ?
                 {...c, title: newTitle}
                 : c)
