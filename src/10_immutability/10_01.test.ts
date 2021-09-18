@@ -1,4 +1,13 @@
-import {makeHairCut, moveUser, updateLaptop, UserType, UserWithLaptopType} from "./10_01";
+import {
+    addBooks,
+    makeHairCut,
+    moveToStreet,
+    moveUser,
+    updateLaptop,
+    UserType,
+    UserWithBooksType,
+    UserWithLaptopType
+} from "./10_01";
 
 test('immutable change test', () => {
     const user = {
@@ -21,7 +30,7 @@ test('change address', () => {
         hair: 32,
         address: {
             city: "London",
-            street:"Central str."
+            street: "Central str."
         },
         laptop: {
             title: "ZenBook"
@@ -30,8 +39,8 @@ test('change address', () => {
     const movedUser = moveUser(user, "Paris")
 
     expect(movedUser.laptop).toEqual({title: "ZenBook"})
-    expect(user.address).toEqual({city: "London",street:"Central str."})
-    expect(movedUser.address).toEqual({city: "Paris",street:"Central str."})
+    expect(user.address).toEqual({city: "London", street: "Central str."})
+    expect(movedUser.address).toEqual({city: "Paris", street: "Central str."})
     expect(movedUser.address).not.toBe(user.address)
 })
 test('update laptop', () => {
@@ -40,7 +49,7 @@ test('update laptop', () => {
         hair: 32,
         address: {
             city: "London",
-            street:"Central str."
+            street: "Central str."
         },
         laptop: {
             title: "ZenBook"
@@ -49,7 +58,49 @@ test('update laptop', () => {
     const userWithUpdatedLaptop = updateLaptop(user, "MacBook Air Pro")
 
     expect(userWithUpdatedLaptop.laptop).toEqual({title: "MacBook Air Pro"})
-    expect(user.address).toEqual(userWithUpdatedLaptop.address)
+    expect(user.laptop.title).toBe("ZenBook")
     expect(userWithUpdatedLaptop.laptop).not.toBe(user.laptop)
     expect(userWithUpdatedLaptop.laptop.title).toBe("MacBook Air Pro")
+})
+test('change street', () => {
+    let user: UserWithLaptopType = {
+        name: "Alex",
+        hair: 32,
+        address: {
+            city: "London",
+            street: "Central str."
+        },
+        laptop: {
+            title: "ZenBook"
+        }
+    }
+    const userMovedToStreet = moveToStreet(user, "Holiday street")
+
+    expect(userMovedToStreet.address.street).toBe("Holiday street")
+    expect(user.address.street).toBe("Central str.")
+    expect(userMovedToStreet.address).not.toEqual(user.address)
+    expect(userMovedToStreet.laptop.title).toBe("ZenBook")
+})
+
+test('add books', () => {
+    let user: UserWithBooksType = {
+        name: "Alex",
+        hair: 32,
+        address: {
+            city: "London",
+            street: "Central str."
+        },
+        laptop: {
+            title: "ZenBook"
+        },
+        books: ["html", "css", "js", "react"]
+    }
+    const reader = addBooks(user, ["ts", "oop", "angular", "rest api"])
+
+    expect(reader.books.length).toBe(8)
+    expect(reader.books[4]).toBe("ts")
+    expect(reader.books[7]).toBe("rest api")
+    expect(user.books.length).toBe(4)
+    expect(reader.address).toEqual(user.address)
+    expect(reader.laptop).toEqual(user.laptop)
 })
