@@ -72,11 +72,17 @@ export function addBooks(u: UserWithBooksType, newBooks: Array<string>) {
     return userCopy
 }
 
-export function updateBook(u: UserWithBooksType, oldBook:string,newBook:string) {
-    const userCopy = {
-        ...u,
-        books: u.books.map(b=> b===oldBook?newBook:b)
-    }
 
-    return userCopy
+export function updateBook(u: UserWithBooksType, oldBook:string,newBook:string) {
+    return {
+        ...u,
+        books: u.books.map(b => b === oldBook ? newBook : b)
+    }
+}
+
+export function removeBook(u: UserWithBooksType, bookForDelete:string) {
+    return {
+        ...u,
+        books: u.books.filter(b => b !==bookForDelete)
+    }
 }

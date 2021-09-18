@@ -2,7 +2,7 @@ import {
     addBooks,
     makeHairCut,
     moveToStreet,
-    moveUser, updateBook,
+    moveUser, removeBook, updateBook,
     updateLaptop,
     UserType,
     UserWithBooksType,
@@ -105,7 +105,7 @@ test('add books', () => {
     expect(reader.laptop).toEqual(user.laptop)
 })
 
-test('update book', () => {
+test('update react book', () => {
     let user: UserWithBooksType = {
         name: "Alex",
         hair: 32,
@@ -122,6 +122,28 @@ test('update book', () => {
 
     expect(updatedReader.books.length).toBe(4)
     expect(updatedReader.books[3]).toBe("algorithms")
+    expect(user.books.length).toBe(4)
+    expect(updatedReader.address).toEqual(user.address)
+    expect(updatedReader.laptop).toEqual(user.laptop)
+})
+
+test('remove html book', () => {
+    let user: UserWithBooksType = {
+        name: "Alex",
+        hair: 32,
+        address: {
+            city: "London",
+            street: "Central str."
+        },
+        laptop: {
+            title: "ZenBook"
+        },
+        books: ["html", "css", "js", "react"]
+    }
+    const updatedReader = removeBook(user, "html")
+
+    expect(updatedReader.books.length).toBe(3)
+    expect(updatedReader.books[3]).toBeUndefined()
     expect(user.books.length).toBe(4)
     expect(updatedReader.address).toEqual(user.address)
     expect(updatedReader.laptop).toEqual(user.laptop)
