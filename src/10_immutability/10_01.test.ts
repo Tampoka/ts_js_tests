@@ -1,5 +1,5 @@
 import {
-    addBooks, addCompany, CompanyType,
+    addBooks, addCompany, CompanyType, deleteCompany,
     makeHairCut,
     moveToStreet,
     moveUser, removeBook, updateBook, updateCompanyTitle, updateCompanyTitle2,
@@ -216,5 +216,26 @@ test('update company name in associative array',()=>{
 
     expect(updatedCompanies).not.toBe(companies)
     expect(updatedCompanies["John"][0]).toEqual({id: 1, title: "Google"})
+    expect(updatedCompanies["John"].length).toBe(2)
+})
+
+test('delete company in associative array',()=>{
+    const companies:{[key:string]:Array<CompanyType>}={
+        ["Bob"]:[
+            {id: 1, title: "Epam"},
+            {id: 2, title: "IT-Incubator"},
+            {id: 3, title: "Every Front"}
+        ],
+        ["John"]:[
+            {id: 1, title: "Frontev"},
+            {id: 2, title: "IT-Incubator"},
+
+        ]
+    }
+    const updatedCompanies=deleteCompany(companies,"Bob",3)
+
+    expect(updatedCompanies).not.toBe(companies)
+    expect(updatedCompanies["Bob"].length).toBe(2)
+    expect(updatedCompanies["Bob"][2]).toBeUndefined()
     expect(updatedCompanies["John"].length).toBe(2)
 })

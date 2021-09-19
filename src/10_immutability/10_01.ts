@@ -135,3 +135,11 @@ export function updateCompanyTitle2(obj: { [key: string]: Array<CompanyType> }, 
     })
      return copy **/
 }
+
+export function deleteCompany(obj: { [key: string]: Array<CompanyType> }, userName:string, companyId:number){
+    return {
+        ...obj,
+        [userName]:obj[userName].filter(c=>
+        c.id!==companyId)
+    }
+}
