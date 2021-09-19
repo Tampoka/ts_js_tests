@@ -216,4 +216,5 @@ test('update company name in associative array',()=>{
 
     expect(updatedCompanies).not.toBe(companies)
     expect(updatedCompanies["John"][0]).toEqual({id: 1, title: "Google"})
+    expect(updatedCompanies["John"].length).toBe(2)
 })

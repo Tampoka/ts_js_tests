@@ -115,11 +115,23 @@ export function updateCompanyTitle(u: WithCompaniesType, companyId: number, newT
 }
 
 export function updateCompanyTitle2(obj: { [key: string]: Array<CompanyType> }, userName: string, companyId: number, newTitle: string) {
-    return {
+
+     return {
         ...obj,
         [userName]: obj[userName].map(c =>
             c.id === companyId ?
                 {...c, title: newTitle}
                 : c)
     }
+
+    /** let copy={...obj}
+     copy[userName]=obj[userName].map((c)=>{
+        if (c.id===companyId){
+            return {...c,title:newTitle}
+        }
+        else {
+            return c
+        }
+    })
+     return copy **/
 }
